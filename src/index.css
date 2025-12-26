@@ -1,0 +1,7 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/* Basic body tweak for the sleek theme */
+ body {
+  background: #0b0b0b;
+} 
