@@ -20,40 +20,40 @@ const products = [
   {
     id: 1,
     name: "Beanie",
-    price: 35,
+    price: 9.99,
     img: Beanie,
     tag: "New",
   },
   {
     id: 2,
     name: "Street Red Snapback",
-    price: 40,
+    price: 14.99,
     img: StreetRed,
     tag: "Hot",
   },
   {
     id: 3,
     name: "Urban Camo Snapback",
-    price: 42,
+    price: 24.99,
     img: urbanCamo,
   },
   {
     id: 4,
     name: "Minimal White Snapback",
-    price: 38,
+    price: 19.99,
     img: minimalWhite,
   },
   {
     id: 5,
     name: "Heritage Grey Snapback",
-    price: 36,
+    price: 9.99,
     img: heritageGrey,
   },
  
   {
     id: 6,
     name: "Unisex Beanie",
-    price: 89,
+    price: 29.99,
     img: nightRed,
     tag: "Limited",
   },
@@ -61,42 +61,42 @@ const products = [
   {
     id : 7,
     name: "Wool Beanie",
-    price: 45,
+    price: 14.99,
     img: WoolBeanie,
   },
 
   {
     id : 8,
     name: "Durag",
-    price: 25,
+    price: 4.99,
     img: Durag,
   },
 
   {
     id : 9,
     name: "Skull Cap",
-    price: 39,
+    price: 9.99,
     img: SkullCap,
   }, 
 
   {
     id : 10,
     name: "Bucket Hat",
-    price: 55,
+    price: 14.99,
     img: BucketHat,
   },
 
   {
     id : 11,
     name: "Cap Bag",
-    price: 75,
+    price: 29.99,
     img: CapBag,
   },
 
   {
     id : 12,
     name: "Collection",
-    price: 300,
+    price: 14.99,
     img: Collection,
     tag: "Exclusive",
   }
@@ -153,7 +153,7 @@ export default function Shop() {
                   {product.name}
                 </h3>
                 <p className="mt-1 text-sm text-gray-400">
-                  ₦{product.price.toLocaleString()}
+                  ${product.price.toLocaleString()}
                 </p>
               </div>
 
