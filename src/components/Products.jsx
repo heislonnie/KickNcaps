@@ -55,7 +55,7 @@ export default function Products() {
             alt={selectedItem.name}
             className="object-cover w-full h-64 mb-4 rounded"
           />
-          <p className="mb-4 text-lg font-semibold">₦{selectedItem.price}</p>
+          <p className="mb-4 text-lg font-semibold">${selectedItem.price}</p>
 
           <PayButton amount={selectedItem.price} name={selectedItem.name} />
 
