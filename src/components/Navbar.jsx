@@ -1,68 +1,18 @@
-// import React, { useState, useContext } from "react";
-// import { Link } from "react-router-dom";
-// import { CartContext } from "../context/CartContext";
-
-// export default function Navbar() {
-//   const [isOpen, setIsOpen] = useState(false);
-//   const { cart } = useContext(CartContext);
-//   // Derive a simple item count for the cart badge. Keep it trivial (length)
-//   const count = Array.isArray(cart) ? cart.length : 0;
-
-//   return (
-//     <nav className="bg-[#111827] text-white px-6 py-4 shadow-md">
-//       <div className="flex items-center justify-between max-w-6xl mx-auto">
-//         <Link to="/" className="text-2xl font-extrabold tracking-tight">KickNcaps</Link>
-
-//         <div className="items-center hidden space-x-6 font-medium md:flex">
-//           <Link to="/" className="transition hover:text-gray-400">Home</Link> 
-//           <Link to="/shop" className="transition hover:text-gray-400">Shop</Link>
-//           <Link to="/about" className="transition hover:text-gray-400">About</Link>
-//           <Link to="/contact" className="transition hover:text-gray-400">Contact</Link>
-
-//           <div className="relative">
-//             <Link to="/cart" className="hover:text-gray-300">Cart</Link>
-//             {count > 0 && (
-//               <span className="absolute -top-2 -right-3  bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-//                 {count}
-//               </span>
-//             )}
-//           </div>
-//         </div>
-
-//         <button className="md:hidden focus:outline-none" onClick={() => setIsOpen(!isOpen)}>
-//           <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none"
-//             viewBox="0 0 24 24" stroke="currentColor">
-//             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
-//               d="M4 6h16M4 12h16M4 18h16" />
-//           </svg>
-//         </button>
-//       </div>
-       
-//       {isOpen && (
-//         <div className="px-6 mt-4 space-y-2 md:hidden">
-//           <Link to="/" className="block hover:text-gray-400">Home</Link>
-//           <Link to="/shop" className="block hover:text-gray-400">Shop</Link>
-//           <Link to="/about" className="block hover:text-gray-400">About</Link>
-//           <Link to="/contact" className="block hover:text-gray-400">Contact</Link>
-//           <Link to="/cart" className="block hover:text-gray-400">Cart</Link>
-//         </div>
-//       )}
-//     </nav>
-//   );
-// }
 
 
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { CartContext } from "../context/CartContext";
+import CartDrawer from "./CartDrawer";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { cart } = useContext(CartContext);
-  const count = Array.isArray(cart) ? cart.length : 0;
+  const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
+  const { itemCount } = useContext(CartContext);
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full text-white shadow-lg backdrop-blur-md bg-black/70">
+    <>
+      <nav className="fixed top-0 left-0 z-50 w-full text-white shadow-lg backdrop-blur-md bg-black/70">
       <div className="flex items-center justify-between max-w-6xl px-6 py-4 mx-auto">
         {/* Logo */}
         <Link
@@ -89,16 +39,60 @@ export default function Navbar() {
 
           {/* Cart */}
           <div className="relative">
-            <Link to="/cart" className="transition-colors hover:text-green-300">
-              Cart
-            </Link>
-            {count > 0 && (
-              <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-                {count}
-              </span>
-            )}
+            <button
+              onClick={() => setCartDrawerOpen(true)}
+              className="relative p-2 transition-colors hover:text-green-300 focus:outline-none"
+              aria-label="Open cart"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.1 5H19M7 13v8a2 2 0 002 2h10a2 2 0 002-2v-3"
+                />
+              </svg>
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full min-w-[1.25rem] h-5 flex items-center justify-center">
+                  {itemCount}
+                </span>
+              )}
+            </button>
           </div>
         </div>
+
+        {/* Cart Button Mobile */}
+        <button
+          onClick={() => setCartDrawerOpen(true)}
+          className="relative p-2 mr-2 transition-colors hover:text-green-300 focus:outline-none md:hidden"
+          aria-label="Open cart"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="w-6 h-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.1 5H19M7 13v8a2 2 0 002 2h10a2 2 0 002-2v-3"
+            />
+          </svg>
+          {itemCount > 0 && (
+            <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full min-w-[1.25rem] h-5 flex items-center justify-center">
+              {itemCount}
+            </span>
+          )}
+        </button>
 
         {/* Mobile Menu Button */}
         <button
@@ -165,5 +159,8 @@ export default function Navbar() {
         </Link>
       </div>
     </nav>
+
+    <CartDrawer open={cartDrawerOpen} onClose={() => setCartDrawerOpen(false)} />
+  </>
   );
 }

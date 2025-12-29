@@ -16,7 +16,7 @@ export default function About() {
           <div className="bg-[#1f2937] rounded-lg p-8 shadow-lg">
             <h2 className="mb-4 text-2xl font-bold text-green-400">Our Mission</h2>
             <p className="leading-relaxed text-gray-300">
-              Capbutiq is a lifestyle brand crafting premium snapbacks that merge urban culture with timeless quality. 
+              KickNcaps is a lifestyle brand crafting premium snapbacks that merge urban culture with timeless quality. 
               We believe that a great cap transcends fashion—it's a statement, an attitude, a lifestyle.
             </p>
           </div>
@@ -45,7 +45,7 @@ export default function About() {
           <h2 className="mb-6 text-3xl font-bold">Our Story</h2>
           <div className="space-y-4 leading-relaxed text-gray-300">
             <p>
-              Founded by snapback enthusiasts who saw a gap in the market, Capbutiq began as a passion project. 
+              Founded by snapback enthusiasts who saw a gap in the market, KickNcaps began as a passion project. 
               We noticed that most caps were either too expensive or lacked genuine style and substance.
             </p>
             <p>
@@ -53,7 +53,7 @@ export default function About() {
               and accessible luxury. Every design, every material choice, every detail is intentional.
             </p>
             <p>
-              Today, Capbutiq represents more than just a brand, it's a community of individuals who value quality, 
+              Today, KickNcaps represents more than just a brand, it's a community of individuals who value quality, 
               authenticity, and self-expression.
             </p>
           </div>
